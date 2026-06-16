@@ -34,6 +34,7 @@ const COMBOS = [
 ];
 
 const BUY='https://www.thebcompany.com.ar/marca?mpage=3&brand=On-Balm|On-Roll|On-Fungi';
+const ROLL_BUY='https://www.thebcompany.com.ar/search/?q=on%2Bfungi&brand=On-Roll';
 
 // ---- On-Roll selector ----
 const thumbs=document.getElementById('rollThumbs');
@@ -48,7 +49,7 @@ function selRoll(i){
   rLine.textContent='On-Roll'; rLine.style.color=p.color; rName.style.color='var(--ink)';
   rDesc.textContent=p.desc; rHalo.style.background='radial-gradient(circle,'+p.color+',transparent 70%)';
   rFeat.style.background='color-mix(in srgb,'+p.color+' 9%, #f7f4ed)';
-  rBuy.href=BUY;
+  rBuy.href=ROLL_BUY; rBuy.target='_blank';
   [...thumbs.children].forEach((b,k)=>b.classList.toggle('active',k===i));
   rFeat.classList.remove('spin'); void rFeat.offsetWidth; rFeat.classList.add('spin');
 }

@@ -167,6 +167,9 @@ section.block{padding:84px 0}
 .balm{border-radius:28px;padding:44px;display:grid;grid-template-columns:1fr 1fr;
   align-items:start;gap:20px;position:relative;overflow:hidden;min-height:320px}
 .balm img{align-self:start}
+.balm-buy{align-self:start;display:block;cursor:pointer}
+.balm-buy img{transition:transform .4s ease}
+.balm-buy:hover img{transform:scale(1.04)}
 .balm.baby{background:linear-gradient(140deg,#fbe7ef,#f6d6e3)}
 .balm.mint{background:linear-gradient(140deg,#e8f3df,#d3e8c6)}
 .balm img{width:90%;margin:0 auto;filter:drop-shadow(0 22px 30px rgba(0,0,0,.14))}
@@ -258,7 +261,7 @@ footer .brand b{color:var(--c-active)}
 /* ===== MOBILE ===== */
 @media(max-width:920px){
   .hero-grid,.philo .wrap,.roll-stage,.balm-grid{grid-template-columns:1fr}
-  .hero-visual{height:380px;order:-1}
+  .hero-visual{height:360px}
   .combo-grid,.contact-grid,.fungi-grid{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
@@ -273,5 +276,7 @@ footer .brand b{color:var(--c-active)}
   section.block,.philo{padding:74px 0}
   .combo-grid,.contact-grid,.fungi-grid,.value-grid,.balm{grid-template-columns:1fr}
   .balm{text-align:center}
+  .value{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:center;padding:18px 20px}
+  .value .ic{grid-row:1/span 2;align-self:start;margin-bottom:0}
   .foot-grid{grid-template-columns:1fr}
 }
