@@ -92,9 +92,12 @@ COMBOS.forEach(co=>{
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.16});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// ---- Capsule open ----
-const capIO=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){document.getElementById('fungi').classList.add('is-open');capIO.disconnect();}}),{threshold:.4});
-capIO.observe(document.getElementById('fungi'));
+// ---- Capsule open (al scrollear se abre; click para abrir/cerrar) ----
+const fungiSec=document.getElementById('fungi');
+const capIO=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){fungiSec.classList.add('is-open','cap-open');capIO.disconnect();}}),{threshold:.4});
+capIO.observe(fungiSec);
+const capsuleEl=fungiSec.querySelector('.capsule');
+if(capsuleEl) capsuleEl.addEventListener('click',()=>fungiSec.classList.toggle('cap-open'));
 
 // ---- Mobile nav ----
 const burger=document.getElementById('burger'), nl=document.getElementById('navlinks');
