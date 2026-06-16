@@ -108,12 +108,13 @@ nl.querySelectorAll('a').forEach(a=>a.onclick=()=>nl.classList.remove('open'));
 (function(){
   var track = document.getElementById('logoTrack');
   if(!track) return;
-  var logos = [['farmacity','Farmacity'],['suizo','Suizo'],['delsud','Del Sud'],
-               ['gps','GPS'],['selma','Selma'],['tkl','TKL']];
+  var logos = [['assets/logos-clientes/farmacity.png','Farmacity'],['assets/logos-clientes/suizo.png','Suizo'],
+               ['assets/logos-clientes/delsud.png','Del Sud'],['assets/logos-clientes/gps.png','GPS'],
+               ['assets/logos-clientes/selma.png','Selma'],['assets/logos-clientes/tkl.png','TKL']];
   function card(l){
     var d=document.createElement('div'); d.className='logo-card';
     var img=document.createElement('img');
-    img.src='assets/logos-clientes/'+l[0]+'.png'; img.alt=l[1]; img.loading='lazy';
+    img.src=l[0]; img.alt=l[1]; img.loading='lazy';
     d.appendChild(img); return d;
   }
   function addGroup(){ logos.forEach(function(l){ track.appendChild(card(l)); }); }
