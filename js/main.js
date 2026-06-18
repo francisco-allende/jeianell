@@ -61,7 +61,7 @@ const ROLL = [
   {id:'fem',    name:'fem',    benefit:'Bienestar femenino', color:'#d24a86', desc:'Promueve el bienestar y brinda alivio al dolor durante el ciclo menstrual.',
     extractos:[
       ['Manzanilla','su nombre se debe a su aroma, que recuerda al de la manzana. Característica por sus propiedades antiespasmódicas.'],
-      ['Tanaceto','es una planta herbácea, perenne, aromática y robusta. Se le atribuyen propiedades emenagogas, es decir, que facilitan la menstruación y reducen los malestares que produce.'],
+      ['Tanaceto','es una planta herbácea, perenne, aromática y robusta. Se le atribuyen propiedades emenagogas, es decir, que alivia los síntomas de la menstruación y reduce los malestares que produce.'],
       ['Menta','hierba perenne de la familia de las lamináceas. Reconocida por sus propiedades antiespasmódicas.'],
       ['Rosa mosqueta','es un arbusto espinoso de la familia de las rosáceas. Tiene propiedades analgésicas que pueden ayudar a aliviar los dolores menstruales.']
     ],
