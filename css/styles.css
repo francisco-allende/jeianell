@@ -108,7 +108,9 @@ section.block{padding:84px 0}
 
 /* ===== ON-ROLL selector ===== */
 #roll{background:var(--paper);transition:background .8s ease}
-.roll-stage{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center}
+.roll-stage{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start}
+#rollFormula{border-top:none;border-radius:18px;padding:6px 24px 12px;margin-top:22px;
+  box-shadow:0 22px 46px -28px rgba(0,0,0,.4);transition:background .6s ease}
 .roll-feature{position:relative;min-height:460px;display:flex;align-items:center;justify-content:center;
   border-radius:28px;background:var(--warm);overflow:hidden;transition:background .6s}
 .roll-feature .halo{position:absolute;width:340px;height:340px;border-radius:50%;

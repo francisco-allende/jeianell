@@ -118,7 +118,9 @@ section.block{padding:84px 0}
 
 /* ===== ON-ROLL selector ===== */
 #roll{background:var(--paper);transition:background .8s ease}
-.roll-stage{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center}
+.roll-stage{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start}
+#rollFormula{border-top:none;border-radius:18px;padding:6px 24px 12px;margin-top:22px;
+  box-shadow:0 22px 46px -28px rgba(0,0,0,.4);transition:background .6s ease}
 .roll-feature{position:relative;min-height:460px;display:flex;align-items:center;justify-content:center;
   border-radius:28px;background:var(--warm);overflow:hidden;transition:background .6s}
 .roll-feature .halo{position:absolute;width:340px;height:340px;border-radius:50%;
@@ -388,6 +390,10 @@ footer .brand b{color:var(--c-active)}
         <div class="benefit" id="rollBenefit">Bienestar físico</div>
         <p class="desc" id="rollDesc"></p>
         <a class="btn" id="rollBuy" href="#" target="_blank">Comprar On-Roll</a>
+        <details class="formula" id="rollFormula">
+          <summary>Conocé la fórmula</summary>
+          <div class="formula-body" id="rollFormulaBody"></div>
+        </details>
         <div class="roll-thumbs" id="rollThumbs"></div>
       </div>
     </div>
@@ -568,11 +574,66 @@ const IMG = {
 };
 
 const ROLL = [
-  {id:'active', name:'active', benefit:'Bienestar físico',   color:'#4e9d3f', desc:'Un blend para aplicar antes o después de tu actividad física favorita. Relaja y revitaliza tus músculos.'},
-  {id:'relax',  name:'relax',  benefit:'Bienestar emocional',color:'#8a78bf', desc:'Tu aliado para neutralizar el estrés y ayudar a la relajación mental.'},
-  {id:'flow',   name:'flow',   benefit:'Bienestar diario',   color:'#e3a32f', desc:'Ideal para pies y piernas cansadas, ayuda a la circulación.'},
-  {id:'energy', name:'energy', benefit:'Energía y foco',     color:'#df5a2b', desc:'Un impulso para incentivar la motivación y alejar la sensación de cansancio.'},
-  {id:'fem',    name:'fem',    benefit:'Bienestar femenino', color:'#d24a86', desc:'Promueve el bienestar y brinda alivio al dolor durante el ciclo menstrual.'},
+  {id:'active', name:'active', benefit:'Bienestar físico',   color:'#4e9d3f', desc:'Un blend para aplicar antes o después de tu actividad física favorita. Relaja y revitaliza tus músculos.',
+    extractos:[
+      ['Árnica montana','uno de los más efectivos calmantes naturales con propiedades refrescantes, brinda alivio en zonas de la piel marcadas por golpes o picaduras.'],
+      ['Enebro','se caracteriza por sus propiedades relajantes, con acción reconfortante, facilita la recuperación del tono muscular.'],
+      ['Alcanfor','compuesto natural con efecto refrescante que promueve el bienestar muscular y la descongestión de las vías aéreas.'],
+      ['Mentol','de cualidades antisépticas, brinda sensación de frescura.']
+    ],
+    aceites:[
+      ['Romero','antioxidante natural de origen mediterráneo, posee propiedades renovadoras, ayuda a energizar y mantener la concentración.'],
+      ['Eucalipto','su inigualable frescura ayuda a una respiración placentera, especialmente en cambios de estación.'],
+      ['Menta','su intensa y refrescante fragancia, anima los sentidos y promueve una sensación de energía y concentración.']
+    ]},
+  {id:'relax',  name:'relax',  benefit:'Bienestar emocional',color:'#8a78bf', desc:'Tu aliado para neutralizar el estrés y ayudar a la relajación mental.',
+    extractos:[
+      ['Tilo','uno de los sedantes naturales más reconocidos. Ayuda a relajar, despejar y distender la mente.'],
+      ['Salvia','hierba utilizada por los antiguos egipcios en el estímulo de los sentidos. A partir de su efecto refrescante y purificante activa tus deseos de bienestar.'],
+      ['Cola de caballo','pertenece al grupo de plantas más antiguas de la tierra. Sus propiedades antioxidantes proporcionan nutrición y juventud a la piel.']
+    ],
+    aceites:[
+      ['Lavanda','conocida por sus notas aromáticas relajantes, es una de las preferidas a la hora de apaciguar la ansiedad y reducir tensiones.'],
+      ['Bergamota','de origen frutal, con aroma fresco y relajante, contribuye a disminuir la ansiedad, aliviar el estrés y mejorar el estado de ánimo.'],
+      ['Palmarosa','símbolo de tranquilidad y equilibrio, ayuda a esclarecer las ideas y alejar los malos pensamientos.'],
+      ['Verbena','hierba ancestral de gran reconocimiento por considerarse un importante estimulante anímico para afrontar la fatiga y el estrés.']
+    ]},
+  {id:'flow',   name:'flow',   benefit:'Bienestar diario',   color:'#e3a32f', desc:'Ideal para pies y piernas cansadas, ayuda a la circulación.',
+    extractos:[
+      ['Hamamelis','revigoriza la piel. Refresca y afloja la contracción provocada por los calambres. Posee propiedades astringentes y desinflamatorias.'],
+      ['Árnica','uno de los más efectivos calmantes naturales con propiedades refrescantes, brinda alivio en zonas de la piel marcadas por golpes o picaduras.'],
+      ['Manzanilla','limpia, tonifica, suaviza y reduce poros. Antiséptico y cicatrizante. Reconfortante frente a piel seca.'],
+      ['Castaño de Indias','reconocido por su capacidad para prevenir calambres, así como también por sus propiedades estimulantes y reafirmantes.']
+    ],
+    aceites:[
+      ['Ciprés','característico por su aroma amaderado. Excelente contra hemorroides, várices y piel grasa.'],
+      ['Romero','antioxidante natural de origen mediterráneo, posee propiedades renovadoras, ayuda a energizar y mantener la concentración.'],
+      ['Limón','con su aroma penetrante, estimula la circulación cutánea. Posee propiedades astringentes de la piel y regula su oleosidad.']
+    ]},
+  {id:'energy', name:'energy', benefit:'Energía y foco',     color:'#df5a2b', desc:'Un impulso para incentivar la motivación y alejar la sensación de cansancio.',
+    extractos:[
+      ['Guduchi','planta originaria de la India tropical, utilizada para compensar la falta de energía.'],
+      ['Ginseng siberiano','originaria de Siberia, aumenta la sensación de vitalidad.'],
+      ['Jengibre','planta de flores del sudeste asiático, ayuda a acelerar el metabolismo.'],
+      ['Guaraná','fruto del amazonas, reconocida por mejorar el rendimiento físico y mental.']
+    ],
+    aceites:[
+      ['Naranja','originaria de Asia, contiene antioxidantes que ayudan a mantener la piel sana.'],
+      ['Limón','con su aroma penetrante, estimula la circulación cutánea. Posee propiedades astringentes de la piel y regula su oleosidad.'],
+      ['Lima','fruta proveniente de Asia, asociada por su poder para alejar la fatiga.']
+    ]},
+  {id:'fem',    name:'fem',    benefit:'Bienestar femenino', color:'#d24a86', desc:'Promueve el bienestar y brinda alivio al dolor durante el ciclo menstrual.',
+    extractos:[
+      ['Manzanilla','su nombre se debe a su aroma, que recuerda al de la manzana. Característica por sus propiedades antiespasmódicas.'],
+      ['Tanaceto','es una planta herbácea, perenne, aromática y robusta. Se le atribuyen propiedades emenagogas, es decir, que facilitan la menstruación y reducen los malestares que produce.'],
+      ['Menta','hierba perenne de la familia de las lamináceas. Reconocida por sus propiedades antiespasmódicas.'],
+      ['Rosa mosqueta','es un arbusto espinoso de la familia de las rosáceas. Tiene propiedades analgésicas que pueden ayudar a aliviar los dolores menstruales.']
+    ],
+    aceites:[
+      ['Salvia','las especies de Salvia incluyen hierbas anuales, bienales y perennes. Asociada a ayudar a regular el ciclo menstrual.'],
+      ['Geranio','es una planta herbácea que se caracteriza por sus flores coloridas. Ayuda a equilibrar los niveles de estrógeno, reduciendo los síntomas de la tensión premenstrual.'],
+      ['Neroli','se obtiene de las flores del naranjo amargo. Ayuda a calmar dolores menstruales y estomacales.']
+    ]},
 ];
 
 const FUNGI = [
@@ -600,7 +661,11 @@ const rImg=document.getElementById('rollImg'), rName=document.getElementById('ro
   rBen=document.getElementById('rollBenefit'), rLine=document.getElementById('rollLine'),
   rDesc=document.getElementById('rollDesc'), rHalo=document.getElementById('rollHalo'),
   rFeat=document.getElementById('rollFeature'), rBuy=document.getElementById('rollBuy'),
+  rForm=document.getElementById('rollFormula'), rFormBody=document.getElementById('rollFormulaBody'),
   rSec=document.getElementById('roll');
+function fmGroup(title,items){
+  return '<h4>'+title+'</h4><ul>'+items.map(function(it){return '<li><b>'+it[0]+'</b><span>'+it[1]+'</span></li>';}).join('')+'</ul>';
+}
 function selRoll(i){
   const p=ROLL[i];
   rImg.src=IMG[p.id]; rName.textContent=p.name; rBen.textContent=p.benefit;
@@ -608,6 +673,8 @@ function selRoll(i){
   rDesc.textContent=p.desc; rHalo.style.background='radial-gradient(circle,'+p.color+',transparent 70%)';
   rFeat.style.background='color-mix(in srgb,'+p.color+' 9%, #f7f4ed)';
   rBuy.href=ROLL_BUY; rBuy.target='_blank';
+  if(rFormBody){ rFormBody.innerHTML=fmGroup('Extractos vegetales',p.extractos)+fmGroup('Aceites esenciales',p.aceites); }
+  if(rForm){ rForm.style.background='color-mix(in srgb,'+p.color+' 13%, #fff)'; rForm.open=false; rForm.classList.remove('animating'); if(rFormBody) rFormBody.style.maxHeight=''; }
   [...thumbs.children].forEach((b,k)=>b.classList.toggle('active',k===i));
   rFeat.classList.remove('spin'); void rFeat.offsetWidth; rFeat.classList.add('spin');
 }
@@ -619,10 +686,16 @@ ROLL.forEach((p,i)=>{
   thumbs.appendChild(b);
 });
 let idx=0; selRoll(0);
-let auto=setInterval(()=>{idx=(idx+1)%ROLL.length;selRoll(idx);},4200);
-function resetAuto(){clearInterval(auto);auto=setInterval(()=>{idx=(idx+1)%ROLL.length;selRoll(idx);},4200);}
-rFeat.addEventListener('mouseenter',()=>clearInterval(auto));
-rFeat.addEventListener('mouseleave',resetAuto);
+let auto=null, hovering=false;
+function startAuto(){ if(!auto) auto=setInterval(()=>{idx=(idx+1)%ROLL.length;selRoll(idx);},4200); }
+function stopAuto(){ clearInterval(auto); auto=null; }
+// Gira solo si no estás encima y la fórmula está cerrada
+function updateAuto(){ if(hovering || (rForm && rForm.open)) stopAuto(); else startAuto(); }
+function resetAuto(){ stopAuto(); updateAuto(); }
+updateAuto();
+rFeat.addEventListener('mouseenter',()=>{hovering=true; updateAuto();});
+rFeat.addEventListener('mouseleave',()=>{hovering=false; updateAuto();});
+if(rForm) rForm.addEventListener('toggle',updateAuto);
 
 // ---- Fungi grid ----
 const FUNGI_BUY='https://www.thebcompany.com.ar/search/?q=on%2Bfungi&brand=On-Fungi';
