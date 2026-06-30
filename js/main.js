@@ -73,9 +73,9 @@ const ROLL = [
 ];
 
 const FUNGI = [
-  {id:'lions_mane', name:"Lion's Mane", benefit:'Concentración · Memoria · Mente', color:'#1f5195'},
-  {id:'reishi',     name:'Reishi',      benefit:'Descanso · Sueño · Armonía',      color:'#5a438b'},
-  {id:'maitake',    name:'Maitake',     benefit:'Defensas · Organismo · Equilibrio',color:'#de9932'},
+  {id:'lions_mane', name:"Lion's Mane", benefit:'Concentración · Memoria · Mente', color:'#1f5195', prospecto:'assets/prospectos/lions_mane.pdf'},
+  {id:'reishi',     name:'Reishi',      benefit:'Descanso · Sueño · Armonía',      color:'#5a438b', prospecto:'assets/prospectos/reishi.pdf'},
+  {id:'maitake',    name:'Maitake',     benefit:'Defensas · Organismo · Equilibrio',color:'#de9932', prospecto:'assets/prospectos/maitake.pdf'},
   // Ocultos hasta su lanzamiento (año próximo): Shiitake, Agaricus Blazei, Tremella
   // {id:'shiitake',   name:'Shiitake',    benefit:'Corazón · Circulación · Vitalidad',color:'#b03461'},
   // {id:'agaricus',   name:'Agaricus',    benefit:'Metabolismo · Organismo · Balance',color:'#2f9565'},
@@ -138,9 +138,12 @@ const FUNGI_BUY='https://www.thebcompany.com.ar/search/?q=on%2Bfungi&brand=On-Fu
 const fg=document.getElementById('fungiGrid');
 FUNGI.forEach(f=>{
   const c=document.createElement('div'); c.className='fcard'; c.style.setProperty('--accent',f.color);
-  c.innerHTML='<img src="'+IMG[f.id]+'" alt="'+f.name+'"><h3>On-Fungi</h3><div class="fname">'+f.name+'</div><div class="fben">'+f.benefit+'</div>';
+  c.innerHTML='<img src="'+IMG[f.id]+'" alt="'+f.name+'"><h3>On-Fungi</h3><div class="fname">'+f.name+'</div><div class="fben">'+f.benefit+'</div>'
+    +(f.prospecto?'<a class="fprospecto" href="'+f.prospecto+'" target="_blank" rel="noopener">Ver prospecto</a>':'');
   c.style.cursor='pointer';
   c.onclick=()=>window.open(FUNGI_BUY,'_blank');
+  const link=c.querySelector('.fprospecto');
+  if(link) link.addEventListener('click',e=>e.stopPropagation());
   fg.appendChild(c);
 });
 

@@ -168,6 +168,10 @@ section.block{padding:84px 0}
   text-transform:uppercase;color:var(--accent)}
 .fcard .fname{font-family:var(--display);font-size:25px;margin:2px 0 10px}
 .fcard .fben{font-size:13px;color:var(--muted);font-family:var(--ui);letter-spacing:.03em}
+.fcard .fprospecto{display:inline-block;margin-top:16px;font-family:var(--ui);font-size:12px;font-weight:600;
+  letter-spacing:.06em;color:var(--accent);text-decoration:none;border-bottom:1.5px solid currentColor;
+  padding-bottom:1px;transition:opacity .25s ease}
+.fcard .fprospecto:hover{opacity:.6}
 
 /* ===== BALM ===== */
 .balm-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
