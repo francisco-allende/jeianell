@@ -1,12 +1,12 @@
 const IMG = {
-  "active":"assets/products/active.png",
-  "relax":"assets/products/relax.png",
-  "flow":"assets/products/flow.png",
-  "energy":"assets/products/energy.png",
-  "fem":"assets/products/fem.png",
-  "lions_mane":"assets/products/lions_mane.png",
-  "reishi":"assets/products/reishi.png",
-  "maitake":"assets/products/maitake.png"
+  "active":"assets/products/active.webp",
+  "relax":"assets/products/relax.webp",
+  "flow":"assets/products/flow.webp",
+  "energy":"assets/products/energy.webp",
+  "fem":"assets/products/fem.webp",
+  "lions_mane":"assets/products/lions_mane.webp",
+  "reishi":"assets/products/reishi.webp",
+  "maitake":"assets/products/maitake.webp"
 };
 
 const ROLL = [
@@ -117,7 +117,7 @@ function selRoll(i){
 ROLL.forEach((p,i)=>{
   const b=document.createElement('button');
   b.style.setProperty('--accent',p.color);
-  b.innerHTML='<img src="'+IMG[p.id]+'" alt="'+p.name+'">';
+  b.innerHTML='<img loading="lazy" src="'+IMG[p.id]+'" alt="'+p.name+'">';
   b.onclick=()=>{selRoll(i);resetAuto();};
   thumbs.appendChild(b);
 });
@@ -138,7 +138,7 @@ const FUNGI_BUY='https://www.thebcompany.com.ar/search/?q=on%2Bfungi&brand=On-Fu
 const fg=document.getElementById('fungiGrid');
 FUNGI.forEach(f=>{
   const c=document.createElement('div'); c.className='fcard'; c.style.setProperty('--accent',f.color);
-  c.innerHTML='<img src="'+IMG[f.id]+'" alt="'+f.name+'"><h3>On-Fungi</h3><div class="fname">'+f.name+'</div><div class="fben">'+f.benefit+'</div>'
+  c.innerHTML='<img loading="lazy" src="'+IMG[f.id]+'" alt="'+f.name+'"><h3>On-Fungi</h3><div class="fname">'+f.name+'</div><div class="fben">'+f.benefit+'</div>'
     +(f.prospecto?'<a class="fprospecto" href="'+f.prospecto+'" target="_blank" rel="noopener">Ver prospecto</a>':'');
   c.style.cursor='pointer';
   c.onclick=()=>window.open(FUNGI_BUY,'_blank');
@@ -150,7 +150,7 @@ FUNGI.forEach(f=>{
 // ---- Combos ----
 const cg=document.getElementById('comboGrid');
 COMBOS.forEach(co=>{
-  const stack=co.items.map(id=>'<img src="'+IMG[id]+'">').join('');
+  const stack=co.items.map(id=>'<img loading="lazy" src="'+IMG[id]+'">').join('');
   const c=document.createElement('div'); c.className='combo';
   c.innerHTML='<div class="stack">'+stack+'</div><h3>'+co.title+'</h3><p>'+co.desc+'</p><div class="price">Ver combo →</div>';
   c.onclick=()=>window.open(BUY,'_blank');
@@ -178,9 +178,9 @@ nl.querySelectorAll('a').forEach(a=>a.onclick=()=>nl.classList.remove('open'));
 (function(){
   var track = document.getElementById('logoTrack');
   if(!track) return;
-  var logos = [['assets/logos-clientes/farmacity.png','Farmacity'],['assets/logos-clientes/suizo.png','Suizo'],
-               ['assets/logos-clientes/delsud.png','Del Sud'],['assets/logos-clientes/gps.png','GPS'],
-               ['assets/logos-clientes/selma.png','Selma'],['assets/logos-clientes/tkl.png','TKL']];
+  var logos = [['assets/logos-clientes/farmacity.webp','Farmacity'],['assets/logos-clientes/suizo.webp','Suizo'],
+               ['assets/logos-clientes/delsud.webp','Del Sud'],['assets/logos-clientes/gps.webp','GPS'],
+               ['assets/logos-clientes/selma.webp','Selma'],['assets/logos-clientes/tkl.webp','TKL']];
   function card(l){
     var d=document.createElement('div'); d.className='logo-card';
     var img=document.createElement('img');
