@@ -82,13 +82,6 @@ const FUNGI = [
   // {id:'tremella',   name:'Tremella',    benefit:'Piel · Cabello · Brillo',         color:'#c74e84'},
 ];
 
-const COMBOS = [
-  {title:'Combo Deporte', items:['active','energy'], desc:'Para el cuerpo activo y la energía que necesitás.'},
-  {title:'Combo Mujer',   items:['fem','flow'],      desc:'Bienestar femenino y equilibrio diario.'},
-  {title:'Relax y Energy', items:['relax','energy'], desc:'Equilibrio natural para mente y energía.'},
-];
-
-const BUY='https://www.thebcompany.com.ar/marca?mpage=3&brand=On-Balm|On-Roll|On-Fungi';
 const ROLL_BUY='https://www.thebcompany.com.ar/search/?q=on%2Bfungi&brand=On-Roll';
 
 // ---- On-Roll selector ----
@@ -145,17 +138,6 @@ FUNGI.forEach(f=>{
   const link=c.querySelector('.fprospecto');
   if(link) link.addEventListener('click',e=>e.stopPropagation());
   fg.appendChild(c);
-});
-
-// ---- Combos ----
-const cg=document.getElementById('comboGrid');
-COMBOS.forEach(co=>{
-  const stack=co.items.map(id=>'<img loading="lazy" src="'+IMG[id]+'">').join('');
-  const c=document.createElement('div'); c.className='combo';
-  c.innerHTML='<div class="stack">'+stack+'</div><h3>'+co.title+'</h3><p>'+co.desc+'</p><div class="price">Ver combo →</div>';
-  c.onclick=()=>window.open(BUY,'_blank');
-  c.style.cursor='pointer';
-  cg.appendChild(c);
 });
 
 // ---- Reveal on scroll ----

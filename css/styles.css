@@ -206,16 +206,6 @@ section.block{padding:84px 0}
 .formula-body li b{color:var(--ink);font-weight:700}
 .formula-body li span{color:var(--ink-soft)}
 
-/* ===== COMBOS ===== */
-.combo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.combo{border:1px solid var(--line);border-radius:22px;padding:30px;background:#fff;transition:.4s}
-.combo:hover{transform:translateY(-6px);box-shadow:0 24px 46px -24px rgba(0,0,0,.25)}
-.combo .stack{display:flex;justify-content:center;height:140px;margin-bottom:18px}
-.combo .stack img{height:100%;width:auto;margin:0 -14px;filter:drop-shadow(0 14px 18px rgba(0,0,0,.12))}
-.combo h3{font-family:var(--display);font-size:24px}
-.combo p{font-size:14px;color:var(--muted);margin-top:6px;font-family:var(--ui)}
-.combo .price{font-family:var(--ui);font-weight:600;margin-top:14px;color:var(--green-deep)}
-
 /* ===== CLIENTS ===== */
 .clients .sec-head{margin-bottom:34px}
 .logo-marquee{position:relative;overflow:hidden;
@@ -274,7 +264,7 @@ footer .brand b{color:var(--c-active)}
   .hero-grid,.philo .wrap,.roll-stage,.balm-grid,.fungi-stage{grid-template-columns:1fr}
   .hero-visual{height:360px}
   .fungi-stage{gap:24px;margin-bottom:40px}
-  .combo-grid,.contact-grid,.fungi-grid{grid-template-columns:1fr 1fr}
+  .contact-grid,.fungi-grid{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:680px){
@@ -286,7 +276,7 @@ footer .brand b{color:var(--c-active)}
   .burger{display:flex}
   .nav-right .btn{display:none}
   section.block,.philo{padding:74px 0}
-  .combo-grid,.contact-grid,.fungi-grid,.value-grid,.balm{grid-template-columns:1fr}
+  .contact-grid,.fungi-grid,.value-grid,.balm{grid-template-columns:1fr}
   .balm{text-align:center}
   .value{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:center;padding:18px 20px}
   .value .ic{grid-row:1/span 2;align-self:start;margin-bottom:0}

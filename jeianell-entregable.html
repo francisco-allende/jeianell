@@ -216,16 +216,6 @@ section.block{padding:84px 0}
 .formula-body li b{color:var(--ink);font-weight:700}
 .formula-body li span{color:var(--ink-soft)}
 
-/* ===== COMBOS ===== */
-.combo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.combo{border:1px solid var(--line);border-radius:22px;padding:30px;background:#fff;transition:.4s}
-.combo:hover{transform:translateY(-6px);box-shadow:0 24px 46px -24px rgba(0,0,0,.25)}
-.combo .stack{display:flex;justify-content:center;height:140px;margin-bottom:18px}
-.combo .stack img{height:100%;width:auto;margin:0 -14px;filter:drop-shadow(0 14px 18px rgba(0,0,0,.12))}
-.combo h3{font-family:var(--display);font-size:24px}
-.combo p{font-size:14px;color:var(--muted);margin-top:6px;font-family:var(--ui)}
-.combo .price{font-family:var(--ui);font-weight:600;margin-top:14px;color:var(--green-deep)}
-
 /* ===== CLIENTS ===== */
 .clients .sec-head{margin-bottom:34px}
 .logo-marquee{position:relative;overflow:hidden;
@@ -284,7 +274,7 @@ footer .brand b{color:var(--c-active)}
   .hero-grid,.philo .wrap,.roll-stage,.balm-grid,.fungi-stage{grid-template-columns:1fr}
   .hero-visual{height:360px}
   .fungi-stage{gap:24px;margin-bottom:40px}
-  .combo-grid,.contact-grid,.fungi-grid{grid-template-columns:1fr 1fr}
+  .contact-grid,.fungi-grid{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:680px){
@@ -296,7 +286,7 @@ footer .brand b{color:var(--c-active)}
   .burger{display:flex}
   .nav-right .btn{display:none}
   section.block,.philo{padding:74px 0}
-  .combo-grid,.contact-grid,.fungi-grid,.value-grid,.balm{grid-template-columns:1fr}
+  .contact-grid,.fungi-grid,.value-grid,.balm{grid-template-columns:1fr}
   .balm{text-align:center}
   .value{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:center;padding:18px 20px}
   .value .ic{grid-row:1/span 2;align-self:start;margin-bottom:0}
@@ -337,7 +327,6 @@ footer .brand b{color:var(--c-active)}
       <p class="lead reveal in d2">Descubrí los beneficios de todos nuestros productos para lograr un bienestar integral, de adentro hacia afuera.</p>
       <div class="hero-cta reveal in d3">
         <a class="btn" href="#roll">Ver productos</a>
-        <a class="btn ghost" href="#fungi">Conocer On-Fungi</a>
       </div>
       <div class="hero-tags reveal in d4">
         <span class="chip">🌱 Extractos vegetales</span>
@@ -364,7 +353,7 @@ footer .brand b{color:var(--c-active)}
     <div class="reveal">
       <span class="eyebrow">Nuestra filosofía</span>
       <h2>Potenciá lo bueno que tenés en tu interior.</h2>
-      <p class="lead">Jeianell nace para acompañar tu bienestar todos los días, con fórmulas de origen vegetal pensadas para el cuerpo, la mente y las emociones. Cada línea está diseñada para un momento, una necesidad y un estado de ánimo.</p>
+      <p class="lead">Jeianell nace para acompañar tu bienestar todos los días, con fórmulas de origen vegetal pensadas para el cuerpo, la mente y las emociones. Cada línea está diseñada para un momento y una necesidad.</p>
     </div>
     <div class="value-grid reveal d2">
       <div class="value"><div class="ic" style="background:var(--c-active)">🌿</div><h3>Origen vegetal</h3><p>Extractos naturales en cada fórmula.</p></div>
@@ -485,18 +474,6 @@ footer .brand b{color:var(--c-active)}
   </div>
 </section>
 
-<!-- COMBOS -->
-<section class="block" id="combos" style="background:var(--warm)">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Combos</span>
-      <h2>Armá tu bienestar a medida</h2>
-      <p>Combinaciones pensadas para acompañar cada objetivo.</p>
-    </div>
-    <div class="combo-grid reveal d2" id="comboGrid"></div>
-  </div>
-</section>
-
 <!-- CLIENTS -->
 <section class="block clients">
   <div class="wrap">
@@ -560,7 +537,6 @@ footer .brand b{color:var(--c-active)}
     </div>
     <div class="foot-bottom">
       <span>© 2026 Jeianell. Todos los derechos reservados.</span>
-      <span>Demo de diseño · pendiente de aprobación</span>
     </div>
   </div>
 </footer>
@@ -650,13 +626,6 @@ const FUNGI = [
   // {id:'tremella',   name:'Tremella',    benefit:'Piel · Cabello · Brillo',         color:'#c74e84'},
 ];
 
-const COMBOS = [
-  {title:'Combo Deporte', items:['active','energy'], desc:'Para el cuerpo activo y la energía que necesitás.'},
-  {title:'Combo Mujer',   items:['fem','flow'],      desc:'Bienestar femenino y equilibrio diario.'},
-  {title:'Relax y Energy', items:['relax','energy'], desc:'Equilibrio natural para mente y energía.'},
-];
-
-const BUY='https://www.thebcompany.com.ar/marca?mpage=3&brand=On-Balm|On-Roll|On-Fungi';
 const ROLL_BUY='https://www.thebcompany.com.ar/search/?q=on%2Bfungi&brand=On-Roll';
 
 // ---- On-Roll selector ----
@@ -713,17 +682,6 @@ FUNGI.forEach(f=>{
   const link=c.querySelector('.fprospecto');
   if(link) link.addEventListener('click',e=>e.stopPropagation());
   fg.appendChild(c);
-});
-
-// ---- Combos ----
-const cg=document.getElementById('comboGrid');
-COMBOS.forEach(co=>{
-  const stack=co.items.map(id=>'<img loading="lazy" src="'+IMG[id]+'">').join('');
-  const c=document.createElement('div'); c.className='combo';
-  c.innerHTML='<div class="stack">'+stack+'</div><h3>'+co.title+'</h3><p>'+co.desc+'</p><div class="price">Ver combo →</div>';
-  c.onclick=()=>window.open(BUY,'_blank');
-  c.style.cursor='pointer';
-  cg.appendChild(c);
 });
 
 // ---- Reveal on scroll ----
